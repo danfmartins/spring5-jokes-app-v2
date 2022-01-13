@@ -1,13 +1,19 @@
-package guru.springframework.spring5jokesappv2.Services;
+package guru.springframework.spring5jokesappv2.services;
 
 import guru.springframework.norris.chuck.ChuckNorrisQuotes;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ChuckNorrisJokeService implements JokeService{
+
+    private final ChuckNorrisQuotes quote;
+
+    public ChuckNorrisJokeService() {
+        this.quote = new ChuckNorrisQuotes();
+    }
+
     @Override
     public String getJoke() {
-        ChuckNorrisQuotes quote = new ChuckNorrisQuotes();
         return quote.getRandomQuote();
     }
 }
